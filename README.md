@@ -1,6 +1,9 @@
 # ctf_xinetd
 
 > A docker repository for deploying CTF challenges
+> 对于一些写代码就是不加“setvbuf”的怎么办？这里提供了一个比较懒人的方法。不知道是不是最好的但是目前能用。
+> 改动依赖于stdbuf命令，stdbuf -i0 -o0设置无缓冲区，然后需要添加libstdbu.so到正确位置来实现功能。
+> 工程改动是添加一个run.sh和复制lib的位置变化一下。
 
 ## Configuration
 
