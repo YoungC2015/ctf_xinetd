@@ -9,7 +9,9 @@ RUN useradd -m ctf
 WORKDIR /home/ctf
 
 RUN cp -R /lib* /home/ctf && \
-    cp -R /usr/lib* /home/ctf
+    cp -R /usr/lib* /home/ctf && \
+    mkdir /home/ctf/usr && \
+    cp -R /usr/lib* /home/ctf/usr
 
 RUN mkdir /home/ctf/dev && \
     mknod /home/ctf/dev/null c 1 3 && \
@@ -21,7 +23,9 @@ RUN mkdir /home/ctf/dev && \
 RUN mkdir /home/ctf/bin && \
     cp /bin/sh /home/ctf/bin && \
     cp /bin/ls /home/ctf/bin && \
-    cp /bin/cat /home/ctf/bin
+    cp /bin/cat /home/ctf/bin && \
+    mkdir /home/ctf/usr/bin && \
+    cp /usr/bin/stdbuf /home/ctf/usr/bin
 
 COPY ./ctf.xinetd /etc/xinetd.d/ctf
 COPY ./start.sh /start.sh
